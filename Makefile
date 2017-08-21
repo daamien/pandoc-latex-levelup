@@ -23,10 +23,10 @@ basic_test:
 	echo 'hello world' | pandoc -t json | python -tt ./pandoc_latex_levelup.py 
 
 %.tex: %.md
-	pandoc --filter $(FILTER) --template $(TEMPLATE) --latex-engine xelatex $(MD) -o $(TEX)
+	pandoc --filter $(FILTER) --template $(TEMPLATE) --latex-engine xelatex --toc --number-sections $(MD) -o $(TEX)
 
 %.pdf:  %.md
-	pandoc --filter $(FILTER) --template $(TEMPLATE) --latex-engine xelatex $(MD) -o $(PDF)
+	pandoc --filter $(FILTER) --template $(TEMPLATE) --latex-engine xelatex --toc --number-sections $(MD) -o $(PDF)
 
 testpypi: sdist 
 	twine upload $(DIST)/* -r testpypi
