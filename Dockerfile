@@ -18,4 +18,4 @@ RUN apt-get update -y \
 
 RUN pip install pandoc-latex-levelup
 
-RUN pandoc --filter ./pandoc_latex_levelup.py --template ./pandoc_latex_levelup.template.tex --latex-engine xelatex ./pandoc_latex_levelup.sample.md -o ./pandoc_latex_levelup.sample.pdf
+RUN pandoc --filter ./pandoc_latex_levelup.py --toc -N ./pandoc_latex_levelup.sample.md -o ./pandoc_latex_levelup.sample.pdf

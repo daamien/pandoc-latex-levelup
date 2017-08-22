@@ -31,12 +31,8 @@ Quick Start
 
 
 ```
-pandoc --filter pandoc-latex-levelup \
-       --template ./pandoc_latex_levelup.template.tex \
-       --latex-engine xelatex \
-       ./pandoc_latex_levelup.sample.md \ 
-       --toc -N \
-       -o ./pandoc_latex_levelup.sample.pdf
+pandoc --filter pandoc-latex-levelup ./pandoc_latex_levelup.sample.md \ 
+       --toc -N -o ./pandoc_latex_levelup.sample.pdf
 ```
 
 

@@ -4,7 +4,6 @@ PDF=$(SAMPLE).pdf
 TEX=$(SAMPLE).tex
 
 FILTER=./pandoc_latex_levelup.py
-TEMPLATE=./pandoc_latex_levelup.template.tex
 
 DIST=dist
 
@@ -23,10 +22,10 @@ basic_test:
 	echo 'hello world' | pandoc -t json | python -tt ./pandoc_latex_levelup.py 
 
 %.tex: %.md
-	pandoc --filter $(FILTER) --template $(TEMPLATE) --latex-engine xelatex --toc --number-sections $(MD) -o $(TEX)
+	pandoc --filter $(FILTER) --toc --number-sections $(MD) -o $(TEX)
 
 %.pdf:  %.md
-	pandoc --filter $(FILTER) --template $(TEMPLATE) --latex-engine xelatex --toc --number-sections $(MD) -o $(PDF)
+	pandoc --filter $(FILTER) --toc --number-sections $(MD) -o $(PDF)
 
 testpypi: sdist 
 	twine upload $(DIST)/* -r testpypi
