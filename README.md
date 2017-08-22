@@ -40,8 +40,21 @@ pandoc --filter pandoc-latex-levelup ./pandoc_latex_levelup.sample.md \
 Configuration
 -------------------------------------------------------------------------------
 
+The filter is designed to work without any parameter, but you can use the two
+options below:
 
-FIXME
+```yaml
+levelup: {                                                                      
+  enable: True,                                                                 
+  unnumbered_h1: False,                                                         
+} 
+```
+
+* ``enable`` is a killswitch. Set it to False and the filter will be disabled.
+  This is useful when you use the filter in a script and you want ot toggle it
+  off for certain md files  (default: True)
+
+* ``unnumbered_h1`` remove numbering from level1 headers (default: True)
 
 Example
 -------------------------------------------------------------------------------
